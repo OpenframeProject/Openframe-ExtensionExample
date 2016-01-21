@@ -1,20 +1,21 @@
 
-// export function?
-module.exports = function(fc) {
-    fc.addFormat()
-};
-
-// or export object?
-
-
 var plugin = module.exports = {};
 
-plugin.install = {
-    // "openframe-gpio": "git+https://git@github.com/jmwohl/Openframe-GPIO.git"
+plugin.formats = [{
+  "name": "string",
+  "download": true,
+  "start_command": "string",
+  "end_command": "string",
+  "category": "string",
+  "id": "string"
+}];
+
+plugin.dependencies = {
+  // "openframe-gpio": "git+https://git@github.com/jmwohl/Openframe-GPIO.git"
 };
 
 // Must return a Promise that resolves on successful intialization
 plugin.init = function(fc) {
-
+    // do your plugin thing
+    console.log('PluginExample initialized!');
 };
-
