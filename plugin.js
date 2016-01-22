@@ -1,13 +1,16 @@
 
 var plugin = module.exports = {};
 
+plugin.config = {
+    platform: 'rpi'
+};
+
 plugin.formats = [{
-  "name": "string",
+  "name": "Shader (glslViewer)",
   "download": true,
-  "start_command": "string",
-  "end_command": "string",
-  "category": "string",
-  "id": "string"
+  "start_command": "glslViewer $filename",
+  "end_command": "sudo pkill glslViewer",
+  "category": "shader"
 }];
 
 plugin.dependencies = {

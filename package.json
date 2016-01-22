@@ -4,6 +4,7 @@
   "description": "An example Openframe Plugin.",
   "main": "plugin.js",
   "scripts": {
+    "preinstall": "sh ./install.sh",
     "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha"
   },
   "keywords": [
