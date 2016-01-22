@@ -11,11 +11,11 @@ plugin.formats = [{
 }];
 
 plugin.dependencies = {
-  // "openframe-gpio": "git+https://git@github.com/jmwohl/Openframe-GPIO.git"
+  // "openframe-gpio": "git+https://git@github.com/OpenframeProject/Openframe-PluginExample.git"
 };
 
 // Must return a Promise that resolves on successful intialization
 plugin.init = function(fc) {
     // do your plugin thing
-    console.log('PluginExample initialized!');
+    console.log('******* PluginExample initialized!');
 };
