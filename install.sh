@@ -20,13 +20,15 @@ if [ $os == "Linux" ]; then
         # FOR NOW, CODE GOES HERE since we're shooting for RPi support
         #
         # ####
-
+        echo "armv7l"
 
 
     else
         # Non-arm7 Debian...
+        echo "non armv7l"
     fi
 
 elif [ $os == "Darwin" ]; then
     # OSX
+    echo "osx"
 fi
