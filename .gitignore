@@ -4,3 +4,4 @@ log/*
 artwork/
 npm-debug.log
 coverage/*
+player/*
