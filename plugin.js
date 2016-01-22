@@ -17,5 +17,5 @@ plugin.dependencies = {
 // Must return a Promise that resolves on successful intialization
 plugin.init = function(fc) {
     // do your plugin thing
-    console.log('******* PluginExample initialized!');
+    console.log('=======>   PluginExample initialized!   <=======');
 };
