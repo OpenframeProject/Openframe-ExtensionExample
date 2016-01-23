@@ -25,7 +25,7 @@ Plugins come in one of two types: FORMAT or FRAME
 
 A FORMAT plugin, not surprisingly, adds a new artwork 'format'. Conceptually, a format can be thought of as the 'type' of the artwork, e.g. 'an image' or 'a shader'. A format defines how the frame controller should start and stop an artwork of its type, and installs any dependencies that the type needs in order to run. Each artwork has exactly one format, and each frame can support any number of formats.
 
-FORMAT plugins should also include a 'format' property which defines the details of the format.
+FORMAT plugins should include a 'format' property which defines the details of the format.
 
 ```javascript
 ...
