@@ -6,14 +6,28 @@ plugin.config = {
     platform: 'rpi'
 };
 
-// OPTIONAL - an array of Format objects
-//
-// TODO - how will these get handled in terms of adding artwork?
-plugin.formats = [];
+// TODO: should this be a constant, supplied by a base module?
+plugin.type = 'format';
+
+/**
+ * If this plugin is adding a new artwork format, the format definition
+ * should be included as a 'format' property on the plugin object.
+ *
+ * Each format must have a unique name.
+ *
+ * @type {Object}
+ */
+plugin.format = {
+    'name': 'image',
+    'download': true,
+    'start_command': 'sudo fbi -a --noverbose -T 1 $filepath',
+    'end_command': 'sudo pkill -f fbi',
+    'category': 'image'
+};
 
 // TODO - Do we want this? Or can we rely on the deps from package.json?
 plugin.dependencies = {
-  // "openframe-gpio": "git+https://git@github.com/OpenframeProject/Openframe-PluginExample.git"
+  // 'openframe-gpio': 'git+https://git@github.com/OpenframeProject/Openframe-PluginExample.git'
 };
 
 /**
