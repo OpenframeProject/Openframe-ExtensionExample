@@ -1,12 +1,8 @@
 > NOTE: this repo is under development. The contents is likely to change significantly.
 
---
-
 # Openframe Plugin Example
 
 A boilerplate example of an Openframe plugin.
-
---
 
 [Openframe](http://openframe.io) is an open source platform for displaying art. Frames running the [Frame Controller](https://github.com/OpenframeProject/Openframe-FrameController) software can load plugins which extend functionality.
 
@@ -16,10 +12,21 @@ A boilerplate example of an Openframe plugin.
 
 At its core, a plugin is a node module which exports an object containing a number of predefined properties. The plugin will specify a type, either FORMAT or FRAME.
 
+Plugins should define a single `init` function. The `init` function is called by the frame controller after the plugin has been installed, and is passed a reference to the frame controller instance, which gives the plugin access to the global event system and other frame functionality.
+
+```javascript
+...
+
+plugin.init = function(fc) {
+    // do your plugin dance
+}
+
+ ...
+```
 
 ### Plugin Types
 
-Plugins come in one of two types: FORMAT or FRAME
+Plugins come in one of two types: `FORMAT` or `FRAME`. The type property is required.
 
 #### FORMAT plugins
 
@@ -50,23 +57,28 @@ plugin.format = {
  ...
 ```
 
+For an example a FORMAT plugin, see [Openframe-glslViewer](https://github.com/OpenframeProject/Openframe-glslViewer).
+
 #### FRAME plugins
 
 A FRAME plugin adds functionality to the frame itself. FRAME plugins might be used to interact with the frame hardware, for example allowing for a custom input device to be used via gpio. In other cases, a FRAME plugin might add functionality that interacts directly with artworks, for example by sending OSC messages.
 
-FRAME plugins should define a single `init` function. The `init` function is called by the frame controller after the plugin has been installed, and is passed a reference to the frame controller instance, which gives the plugin access to the global event system and other frame functionality.
+For FRAME plugins, most of the logic will likely go in the `init` method.
 
 ```javascript
 ...
 
 plugin.type = 'FRAME';
 
+// called after install has completed
 plugin.init = function(fc) {
     // do your plugin dance
 }
 
  ...
 ```
+
+For an example a FRAME plugin, see [Openframe-GPIO](https://github.com/OpenframeProject/Openframe-GPIO).
 
 ### Installing dependencies
 

@@ -7,7 +7,7 @@ plugin.config = {
 };
 
 // TODO: should this be a constant, supplied by a base module?
-plugin.type = 'format';
+plugin.type = 'FORMAT';
 
 /**
  * If this plugin is adding a new artwork format, the format definition
@@ -25,13 +25,8 @@ plugin.format = {
     'category': 'image'
 };
 
-// TODO - Do we want this? Or can we rely on the deps from package.json?
-plugin.dependencies = {
-  // 'openframe-gpio': 'git+https://git@github.com/OpenframeProject/Openframe-PluginExample.git'
-};
-
 /**
- * Plugin initialization method.
+ * Plugin initialization method
  *
  * Called when the plugin (and its dependencies) have been installed.
  *
@@ -42,4 +37,9 @@ plugin.dependencies = {
 plugin.init = function(fc) {
     // do your plugin thing
     console.log('=======>   PluginExample initialized!   <=======');
+};
+
+// TODO - Do we want this? Or can we rely on the deps from package.json?
+plugin.dependencies = {
+  // 'openframe-gpio': 'git+https://git@github.com/OpenframeProject/Openframe-PluginExample.git'
 };
