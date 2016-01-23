@@ -10,9 +10,8 @@ A boilerplate example of an Openframe plugin.
 
 > Note: This is an early prototype. The API will change. A lot.
 
-At its core, a plugin is a node module which exports an object containing a number of predefined properties. The plugin will specify a type, either FORMAT or FRAME.
-
-Plugins should define a single `init` function. The `init` function is called by the frame controller after the plugin has been installed, and is passed a reference to the frame controller instance, which gives the plugin access to the global event system and other frame functionality.
+A plugin is simply a node module which exports an plugin containing a handful of predefined properties.
+The plugin will specify a type, either FORMAT or FRAME, and should define a single `init` function. The `init` function is called by the frame controller after the plugin has been installed, and is passed a reference to the frame controller instance, which gives the plugin access to the global event system and other frame functionality.
 
 ```javascript
 ...
