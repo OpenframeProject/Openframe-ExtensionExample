@@ -1,4 +1,4 @@
-> NOTE: this repo is under development. The contents is likely to change significantly.
+> NOTE: This repo is under development. The contents is likely to change significantly.
 
 # Openframe Plugin Example
 
@@ -8,7 +8,7 @@ A boilerplate example of an Openframe plugin.
 
 ## Developing a Plugin
 
-> Note: This is an early prototype. The API will change. A lot.
+> Early prototype. The API will change. A lot.
 
 A plugin is simply a node module which exports an plugin containing a handful of predefined properties.
 The plugin will specify a type, either FORMAT or FRAME, and should define a single `init` function. The `init` function is called by the frame controller after the plugin has been installed, and is passed a reference to the frame controller instance, which gives the plugin access to the global event system and other frame functionality.
