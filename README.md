@@ -52,7 +52,7 @@ ofPluginApi.addFormat(
         // how should the artwork be halted?
         'end_command': 'echo "stopping"',
         // some keywords for grouping/searching formats
-        'tags': ['image']
+        'tags': ['example']
     }
 );
 
