@@ -1,45 +1,47 @@
+var pjson = require('./package.json'),
+    plugin = module.exports = {};
 
-var plugin = module.exports = {};
-
-// Do we need this? Are there other plugin-y config things?
+// Currently unused... but maybe a good idea?
 plugin.config = {
     platform: 'rpi'
 };
 
-// TODO: should this be a constant, supplied by a base module?
-plugin.type = 'FORMAT';
-
 /**
- * If this plugin is adding a new artwork format, the format definition
- * should be included as a 'format' property on the plugin object.
- *
- * Each format must have a unique name.
- *
- * @type {Object}
- */
-plugin.format = {
-    'name': 'image',
-    'download': true,
-    'start_command': 'sudo fbi -a --noverbose -T 1 $filepath',
-    'end_command': 'sudo pkill -f fbi',
-    'category': 'image'
-};
-
-/**
- * Plugin initialization method
+ * Plugin initialization method.
  *
  * Called when the plugin (and its dependencies) have been installed.
  *
- * TODO: This will likely get passed a sandboxed API object rather than the full frame controller...
- *
- * @param  {object} fc A reference to the frame controller
+ * @param  {object} ofPluginApi An interface provided to plugins giving limitted access to the frame environment
  */
-plugin.init = function(fc) {
+plugin.init = function(ofPluginApi) {
     // do your plugin thing
-    console.log('=======>   PluginExample initialized!   <=======');
-};
+    console.log('=======>   Openframe-glslViewer initialized!   <=======');
 
-// TODO - Do we want this? Or can we rely on the deps from package.json?
-plugin.dependencies = {
-  // 'openframe-gpio': 'git+https://git@github.com/OpenframeProject/Openframe-PluginExample.git'
+    /**
+     * Plugins can add new artwork formats to the frame.
+     *
+     * Each format must have a unique name, which should correspond to the
+     * name of the npm package.
+     */
+    ofPluginApi.addFormat(
+        {
+            // the name should be the same as the package name
+            'name': pjson.name,
+            // displayed to the user, perhaps?
+            'display_name': 'Example Plugin',
+            // does this type of artwork need to be downloaded to the frame?
+            'download': false,
+            // how do start this type of artwork? currently two token replacements, $filepath and $url
+            'start_command': 'echo "starting Example Plugin..."',
+            // how do we stop this type of artwork?
+            'end_command': 'echo "stopping Example Plugin..."',
+
+            'tags': ['example']
+        }
+    );
+
+    /**
+     * Plugins also have access to the global event system
+     */
+    plugin.pubsub = ofPluginApi.getPubsub();
 };
