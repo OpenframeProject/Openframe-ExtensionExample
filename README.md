@@ -19,7 +19,7 @@ plugin.init = function(ofPluginApi) {
     // do your plugin dance
 }
 
- ...
+...
 ```
 
 ### Plugin Types
@@ -73,7 +73,7 @@ plugin.init = function(fc) {
     // do your plugin dance
 }
 
- ...
+...
 ```
 
 For an example a FRAME plugin, see [Openframe-GPIO](https://github.com/OpenframeProject/Openframe-GPIO).
