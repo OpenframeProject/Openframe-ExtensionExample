@@ -67,10 +67,19 @@ A FRAME plugin adds functionality to the frame itself. FRAME plugins might be us
 
 ```javascript
 ...
+var gpio = require('onoff').Gpio;
 
 // called after install has completed
-plugin.init = function(fc) {
-    // do your plugin dance
+plugin.init = function(ofPluginApi) {
+    // maybe add a button?
+    var pubsub = ofPluginApi.getPubsub(),
+        button = new gpio(17, 'in', 'both');
+    
+    // when the button changes, publish an event
+    button.watch(function(err, state) {
+        if (err) console.log(err);
+        pubsub.publish('/openframe-gpio/17', state);
+    });
 }
 
 ...
