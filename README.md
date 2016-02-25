@@ -18,14 +18,14 @@ extension.init = function(OF) {
 
     // The OF provides access to the current Frame state as a plain javascript object
     var frame = OF.getFrameState();
-    console.log(frame.name);
-    console.log(frame._current_artwork);
+    debug(frame.name);
+    debug(frame._current_artwork);
 
     // The OF provides access to the global pubsub system:
     // TODO: provide better example usage
     OF.pubsub.publish('some/event', {msg: 'something happened!'});
     OF.pubsub.subscribe('frame/' + frame.id + '/updated', function() {
-        console.log('frame has updated!');
+        debug('frame has updated!');
     });
 
     // Finally, extensions are given access to an authenticated REST client (swagger):
@@ -90,7 +90,7 @@ extension.init = function(OF) {
 
     // when the button changes, publish an event
     button.watch(function(err, state) {
-        if (err) console.log(err);
+        if (err) debug(err);
         pubsub.publish('/openframe-gpio/17', state);
     });
 }
