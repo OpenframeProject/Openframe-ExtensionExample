@@ -2,7 +2,7 @@
   "name": "openframe-pluginexample",
   "version": "0.1.0",
   "description": "An example Openframe Plugin.",
-  "main": "plugin.js",
+  "main": "extension.js",
   "scripts": {
     "install": "sh ./install.sh",
     "uninstall": "sh ./uninstall.sh",
@@ -17,5 +17,8 @@
     "istanbul": "^0.4.2",
     "mocha": "^2.3.4",
     "sinon": "^1.17.2"
+  },
+  "dependencies": {
+    "debug": "^2.2.0"
   }
 }
