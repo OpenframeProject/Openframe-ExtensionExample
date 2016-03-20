@@ -4,9 +4,9 @@
 
 A boilerplate example of an Openframe extension.
 
-[Openframe](http://openframe.io) is an open source platform for displaying art. Frames running the [Openframe controller](https://github.com/OpenframeProject/Openframe) software can load extensions which extend functionality.
+[Openframe](http://openframe.io) is an open source platform for displaying art. Frames running the [Openframe controller](https://github.com/OpenframeProject/Openframe) software can load extensions which add functionality.
 
-## Developing a Extension
+## Developing an Extension
 
 A extension is simply a node module which exports an object containing a handful of predefined properties. Every extension must define an `init` function which is called by the frame controller after the extension has been installed, and is passed a reference to an OF object. The OF object provides the extension sandboxed access to the openframe system.
 
@@ -47,7 +47,7 @@ A FORMAT extension, not surprisingly, adds a new artwork 'format'. Conceptually,
 
 Each artwork specifies exactly one format, and each frame can support any number of formats.
 
-FORMAT extensions should call the addFormat method on the OF, passing a 'format' object which defines the details of the format.
+FORMAT extensions should call the addFormat method on the OF object, passing a 'format' object which defines the details of the format.
 
 ```javascript
 ...
@@ -98,7 +98,7 @@ extension.init = function(OF) {
 ...
 ```
 
-For an example a FRAME extension, see [Openframe-GPIO](https://github.com/OpenframeProject/Openframe-GPIO).
+For an example a FRAME extension, ~~see [Openframe-GPIO](https://github.com/OpenframeProject/Openframe-GPIO)~~ (we need to update this to the most recent extension structure).
 
 ### Installing dependencies
 
