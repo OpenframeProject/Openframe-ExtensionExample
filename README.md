@@ -16,22 +16,25 @@ A extension is simply a node module which exports an object containing a handful
 extension.init = function(OF) {
     // do your extension dance
 
-    // The OF provides access to the current Frame state as a plain javascript object
-    var frame = OF.getFrameState();
-    debug(frame.name);
-    debug(frame._current_artwork);
+    // Add a new format, see below
+    // OF.addFormat(...)
+
+    // The OF provides access to the current Frame model object. From this object you can access and modify
+    // the current frame state directly (frame.state, a serializable js object), persist it to the local disk or
+    // save it to the server, etc. Look at frame.js in the Openframe repo for details.
+    var frame = OF.getFrame();
 
     // The OF provides access to the global pubsub system:
-    // TODO: provide better example usage
-    OF.pubsub.publish('some/event', {msg: 'something happened!'});
-    OF.pubsub.subscribe('frame/' + frame.id + '/updated', function() {
+    var pubsub = OF.getPubsub();
+    pubsub.publish('some/event', {msg: 'something happened!'});
+    pubsub.subscribe('frame/' + frame.state.id + '/updated', function() {
         debug('frame has updated!');
     });
 
     // Finally, extensions are given access to an authenticated REST client (swagger):
     // https://github.com/swagger-api/swagger-js
     // TODO: provide example usage
-    var swaggerClient = OF.rest;
+    var swaggerClient = OF.getRest();
 }
 
 ...
