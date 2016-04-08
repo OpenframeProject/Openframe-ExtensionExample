@@ -23,7 +23,7 @@ extension.init = function(OF) {
         {
             // the name should be the same as the package name
             'name': pjson.name,
-            // displayed to the user, perhaps?
+            // displayed to the user, perhaps? Currently unused.
             'display_name': 'Example Extension',
             // does this type of artwork need to be downloaded to the frame?
             'download': false,
@@ -35,6 +35,13 @@ extension.init = function(OF) {
     );
 
     /**
+     * The OF provides access to the current Frame model module. From this module you can access and modify
+     * the current frame state directly (frame.state, a serializable js object), persist it to the local disk or
+     * save it to the server, etc. Look at frame.js in the Openframe repo for details.
+     */
+    extension.frame = OF.getFrame();
+
+    /**
      * Extensions also have access to the global event system
      */
     extension.pubsub = OF.getPubsub();
@@ -44,5 +51,7 @@ extension.init = function(OF) {
      * See openframe.io/explorer for API docs, or openframe.io/explorer/swagger.json for the swagger definition
      * which shows the available methods as 'operationId'
      */
-    extension.rest = OF.rest();
+    extension.rest = OF.getRest();
+
+
 };

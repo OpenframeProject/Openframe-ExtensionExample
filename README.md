@@ -19,7 +19,7 @@ extension.init = function(OF) {
     // Add a new format, see below
     // OF.addFormat(...)
 
-    // The OF provides access to the current Frame model object. From this object you can access and modify
+    // The OF provides access to the current Frame model module. From this object you can access and modify
     // the current frame state directly (frame.state, a serializable js object), persist it to the local disk or
     // save it to the server, etc. Look at frame.js in the Openframe repo for details.
     var frame = OF.getFrame();
