@@ -1,4 +1,4 @@
-> NOTE: The Openframe platform is in an early stage. The extension API may change significantly.
+# DEPRECATED - Please see [Openframe-Extension](https://github.com/OpenframeProject/Openframe-Extension) for more info.
 
 # Openframe Extension Example
 
