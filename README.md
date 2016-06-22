@@ -1,4 +1,5 @@
-# DEPRECATED - Please see [Openframe-Extension](https://github.com/OpenframeProject/Openframe-Extension) for more info.
+# DEPRECATED
+Please see [Openframe-Extension](https://github.com/OpenframeProject/Openframe-Extension) for more info.
 
 # Openframe Extension Example
 
